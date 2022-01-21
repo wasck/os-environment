@@ -1,0 +1,12 @@
+{
+  "$schema": "",
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+      ]
+    }
+  ]
+}
