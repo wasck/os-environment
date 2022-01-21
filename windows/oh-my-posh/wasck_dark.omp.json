@@ -1,23 +1,50 @@
 {
   "$schema": "https://raw.githubusercontent.com/wasck/os-environment/main/windows/oh-my-posh/wasck_dark.omp.json",
-  "palette": {
-    "gray": "#757575",
-    "green": "#00FF00"
-  },
   "final_space": false,
   "osc99": true,
+  "palette": {
+    "git-foreground": "#193549",
+    "git-background": "white",
+    "git-modified": "#FFEB3B",
+    "git-diverged": "#FFCC80",
+    "git-ahead": "#B388FF",
+    "git-behind": "#B388FF",
+    "node-green": "#6CA35E",
+    "path-foreground": "#ffffff",
+    "path-background": "#61AFEF",
+    "gray": "#757575",
+    "green": "#00FF00",
+    "red": "red"
+  },
   "blocks": [
     {
       "type": "prompt",
       "alignment": "right",
       "segments": [
         {
+          "type": "angular",
+          "style": "plain",
+          "foreground": "p:gray",
+          "properties": {
+            "prefix": "<p:red,>\uE753</> ",
+            "postfix": " <p:gray,>|</> "
+          }
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "p:gray",
+          "properties": {
+            "prefix": "<p:node-green,>\uE718</> ",
+            "postfix": " <p:gray,>|</> "
+          }
+        },
+        {
           "type": "time",
           "style": "plain",
           "foreground": "p:gray",
           "properties": {
-            "prefix": " <p:gray,>|</> ",
-            "postfix": "",
+            "prefix": "",
             "time_format": "15:04:05"
           }
         }
@@ -36,6 +63,36 @@
             "prefix": "\u250c ",
             "template": "{{ .Env.USERNAME }}@{{ .Env.COMPUTERNAME }}"
           }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "p:path-foreground",
+          "background": "p:path-background",
+          "properties": {
+            "style": "agnoster_short",
+            "max_depth": "2"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "p:git-foreground",
+          "background": "p:git-background",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:git-modified{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git-diverged{{ end }}",
+            "{{ if gt .Ahead 0 }}p:git-ahead{{ end }}",
+            "{{ if gt .Behind 0 }}p:git-behind{{ end }}"
+          ],
+          "properties": {
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true,
+            "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }}"
+          }
         }
       ]
     },
@@ -51,7 +108,7 @@
           "properties": {
             "prefix": "",
             "postfix": "",
-            "text": "\u2514 "
+            "text": "\u2514"
           }
         },
         {
@@ -61,7 +118,7 @@
           "properties": {
             "prefix": "",
             "postfix": "",
-            "text": "><p:green,>$</> "
+            "text": "<p:gray,>></><p:green,>$</> "
           }
         }
       ]
@@ -70,6 +127,6 @@
   "transient_prompt": {
     "background": "transparent",
     "foreground": "#ffffff",
-    "template": "> "
+    "template": "<p:gray,>></> "
   }
 }
