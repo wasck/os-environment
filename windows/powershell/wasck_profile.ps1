@@ -4,10 +4,11 @@ Import-Module posh-git
 # Set oh-my-posh
 $ohMyPoshPath = '~/.oh-my-posh/'
 $ohMyPoshThemesPath = $ohMyPoshPath + 'themes/'
-$ohMyPoshTheme = 'stelbent.minimal'
+$ohMyPoshTheme = 'wasck_dark'
 $ohMyPoshThemeConfiguration = $ohMyPoshThemesPath + $ohMyPoshTheme + '.omp.json'
 
 oh-my-posh --init --shell pwsh --config $ohMyPoshThemeConfiguration | Invoke-Expression
+Enable-PoshTransientPrompt
 
 # Aliases
 Set-Alias -Name ll -Value Get-ChildItem
