@@ -1,12 +1,75 @@
 {
-  "$schema": "",
-  "final_space": true,
+  "$schema": "https://raw.githubusercontent.com/wasck/os-environment/main/windows/oh-my-posh/wasck_dark.omp.json",
+  "palette": {
+    "gray": "#757575",
+    "green": "#00FF00"
+  },
+  "final_space": false,
+  "osc99": true,
   "blocks": [
     {
       "type": "prompt",
-      "alignment": "left",
+      "alignment": "right",
       "segments": [
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "p:gray",
+          "properties": {
+            "prefix": " <p:gray,>|</> ",
+            "postfix": "",
+            "time_format": "15:04:05"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "p:gray",
+          "properties": {
+            "prefix": "\u250c ",
+            "template": "{{ .Env.USERNAME }}@{{ .Env.COMPUTERNAME }}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:gray",
+          "properties": {
+            "prefix": "",
+            "postfix": "",
+            "text": "\u2514 "
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "",
+            "postfix": "",
+            "text": "><p:green,>$</> "
+          }
+        }
       ]
     }
-  ]
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#ffffff",
+    "template": "> "
+  }
 }
