@@ -23,6 +23,17 @@
       "alignment": "right",
       "segments": [
         {
+          "type": "java",
+          "style": "diamond",
+          "foreground": "red",
+          "background": "p:gray",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
+          "properties": {
+            "prefix": " \uE738 "
+          }
+        },
+        {
           "type": "angular",
           "style": "diamond",
           "foreground": "white",
