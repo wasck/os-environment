@@ -23,6 +23,17 @@
       "alignment": "right",
       "segments": [
         {
+          "type": "dotnet",
+          "style": "diamond",
+          "foreground": "p:windows-blue",
+          "background": "p:gray",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
+          "properties": {
+            "prefix": " \uE77F "
+          }
+        },
+        {
           "type": "java",
           "style": "diamond",
           "foreground": "red",
