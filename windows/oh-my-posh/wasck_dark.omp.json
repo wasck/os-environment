@@ -1,8 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/wasck/os-environment/main/windows/oh-my-posh/wasck_dark.omp.json",
-  "final_space": false,
+  "final_space": true,
   "osc99": true,
   "palette": {
+    "windows-blue": "#26C6DA",
     "git-foreground": "#193549",
     "git-background": "white",
     "git-modified": "#FFEB3B",
@@ -10,8 +11,8 @@
     "git-ahead": "#B388FF",
     "git-behind": "#B388FF",
     "node-green": "#6CA35E",
-    "path-foreground": "#ffffff",
-    "path-background": "#61AFEF",
+    "path-foreground": "white",
+    "path-background": "#757575",
     "gray": "#757575",
     "green": "#00FF00",
     "red": "red"
@@ -23,29 +24,56 @@
       "segments": [
         {
           "type": "angular",
-          "style": "plain",
-          "foreground": "p:gray",
+          "style": "diamond",
+          "foreground": "white",
+          "background": "p:gray",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
           "properties": {
-            "prefix": "<p:red,>\uE753</> ",
-            "postfix": " <p:gray,>|</> "
+            "prefix": " <p:red,>\uE753</> "
           }
         },
         {
           "type": "node",
-          "style": "plain",
-          "foreground": "p:gray",
+          "style": "diamond",
+          "foreground": "white",
+          "background": "p:gray",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
           "properties": {
-            "prefix": "<p:node-green,>\uE718</> ",
-            "postfix": " <p:gray,>|</> "
+            "prefix": " <p:node-green,>\uE718</> "
+          }
+        },
+        {
+          "type": "shell",
+          "style": "diamond",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
+          "foreground": "white",
+          "background": "p:gray",
+          "properties": { }
+        },
+        {
+          "type": "os",
+          "style": "diamond",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
+          "foreground": "white",
+          "background": "p:gray",
+          "properties": {
+            "macos": "mac"
           }
         },
         {
           "type": "time",
-          "style": "plain",
-          "foreground": "p:gray",
+          "style": "diamond",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0B4",
+          "foreground": "white",
+          "background": "p:gray",
           "properties": {
-            "prefix": "",
-            "time_format": "15:04:05"
+            "time_format": "15:04:05",
+            "postfix": " \uf5ef "
           }
         }
       ]
@@ -57,19 +85,22 @@
       "segments": [
         {
           "type": "session",
-          "style": "plain",
-          "foreground": "p:gray",
+          "style": "diamond",
+          "foreground": "white",
+          "background": "p:gray",
+          "leading_diamond": "\uE0B6",
+          "trailing_diamond": "\uE0BC",
           "properties": {
-            "prefix": "\u250c ",
             "template": "{{ .Env.USERNAME }}@{{ .Env.COMPUTERNAME }}"
           }
         },
         {
           "type": "path",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
+          "style": "diamond",
           "foreground": "p:path-foreground",
           "background": "p:path-background",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
           "properties": {
             "style": "agnoster_short",
             "max_depth": "2"
@@ -77,8 +108,9 @@
         },
         {
           "type": "git",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
+          "style": "diamond",
+          "leading_diamond": "\uE0BA",
+          "trailing_diamond": "\uE0BC",
           "foreground": "p:git-foreground",
           "background": "p:git-background",
           "background_templates": [
@@ -106,9 +138,20 @@
           "style": "plain",
           "foreground": "p:gray",
           "properties": {
-            "prefix": "",
             "postfix": "",
             "text": "\u2514"
+          }
+        },
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "#00897b",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#e91e63{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true,
+            "template": "\uE23A"
           }
         },
         {
