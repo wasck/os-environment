@@ -1,20 +1,21 @@
 {
-  "$schema": "https://raw.githubusercontent.com/wasck/os-environment/main/windows/oh-my-posh/wasck_dark.omp.json",
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "final_space": true,
   "osc99": true,
   "palette": {
     "windows-blue": "#26C6DA",
     "git-foreground": "#193549",
     "git-background": "white",
-    "git-modified": "#FFEB3B",
-    "git-diverged": "#FFCC80",
-    "git-ahead": "#B388FF",
-    "git-behind": "#B388FF",
+    "git-modified": "#DCDBA8",
+    "git-diverged": "#FAA381",
+    "git-ahead": "#C9DBBA",
+    "git-behind": "#F5CDA7",
     "node-green": "#6CA35E",
     "path-foreground": "white",
     "path-background": "#757575",
+    "text": "#706C61",
     "gray": "#757575",
-    "green": "#00FF00",
+    "mint-green": "#ADFC92",
     "red": "red"
   },
   "blocks": [
@@ -24,78 +25,60 @@
       "segments": [
         {
           "type": "dotnet",
-          "style": "diamond",
-          "foreground": "p:windows-blue",
-          "background": "p:gray",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
+          "style": "plain",
+          "foreground": "p:text",
           "properties": {
-            "prefix": " \uE77F "
+            "prefix": " \uE77F ",
+            "postfix": "<p:mint-green,>\u2022</>"
           }
         },
         {
           "type": "java",
-          "style": "diamond",
+          "style": "plain",
           "foreground": "red",
-          "background": "p:gray",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
           "properties": {
-            "prefix": " \uE738 "
+            "prefix": " \uE738 ",
+            "postfix": "<p:mint-green,>\u2022</>"
           }
         },
         {
           "type": "angular",
-          "style": "diamond",
-          "foreground": "white",
-          "background": "p:gray",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
+          "style": "plain",
+          "foreground": "p:text",
           "properties": {
-            "prefix": " <p:red,>\uE753</> "
+            "prefix": " <p:red,>\uE753</> ",
+            "postfix": " <p:mint-green,>\u2022</>"
           }
         },
         {
           "type": "node",
-          "style": "diamond",
-          "foreground": "white",
-          "background": "p:gray",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
+          "style": "plain",
+          "foreground": "p:text",
           "properties": {
-            "prefix": " <p:node-green,>\uE718</> "
+            "prefix": " <p:node-green,>\uE718</> ",
+            "postfix": " <p:mint-green,>\u2022</>"
           }
         },
         {
           "type": "shell",
-          "style": "diamond",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
-          "foreground": "white",
-          "background": "p:gray",
-          "properties": { }
-        },
-        {
-          "type": "os",
-          "style": "diamond",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
-          "foreground": "white",
-          "background": "p:gray",
+          "style": "plain",
+          "foreground": "p:text",
           "properties": {
-            "macos": "mac"
+            "prefix": " [ ",
+            "postfix": " <p:mint-green,>\u2022</> ",
+            "mapped_shell_names": {
+              "pwsh": "PS"
+            }
           }
         },
         {
           "type": "time",
-          "style": "diamond",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0B4",
-          "foreground": "white",
-          "background": "p:gray",
+          "style": "plain",
+          "foreground": "p:text",
           "properties": {
-            "time_format": "15:04:05",
-            "postfix": " \uf5ef "
+            "prefix": "",
+            "time_format": "15<p:mint-green,>:</>04<p:mint-green,>:</>05",
+            "postfix": " ] "
           }
         }
       ]
@@ -107,34 +90,39 @@
       "segments": [
         {
           "type": "session",
-          "style": "diamond",
-          "foreground": "white",
-          "background": "p:gray",
-          "leading_diamond": "\uE0B6",
-          "trailing_diamond": "\uE0BC",
+          "style": "plain",
+          "foreground": "p:text",
           "properties": {
-            "template": "{{ .Env.USERNAME }}@{{ .Env.COMPUTERNAME }}"
+            "prefix": "╭─\u27E8 ",
+            "template": "{{ .Env.USERNAME }} <p:mint-green,>\u2022</> {{ .Env.COMPUTERNAME }}",
+            "postfix": ""
+          }
+        },
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "p:text",
+          "properties": {
+            "prefix": " <p:mint-green,>\u2022</> ",
+            "macos": "mac",
+            "postfix": " \u27E9 "
           }
         },
         {
           "type": "path",
-          "style": "diamond",
-          "foreground": "p:path-foreground",
-          "background": "p:path-background",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
+          "style": "plain",
+          "foreground": "p:text",
           "properties": {
+            "prefix": "<p:mint-green,>\u27A6</> ",
             "style": "agnoster_short",
-            "max_depth": "2"
+            "max_depth": "2",
+            "home_icon": "\uf7db "
           }
         },
         {
           "type": "git",
-          "style": "diamond",
-          "leading_diamond": "\uE0BA",
-          "trailing_diamond": "\uE0BC",
-          "foreground": "p:git-foreground",
-          "background": "p:git-background",
+          "style": "plain",
+          "foreground": "p:text",
           "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}p:git-modified{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git-diverged{{ end }}",
@@ -142,10 +130,11 @@
             "{{ if gt .Behind 0 }}p:git-behind{{ end }}"
           ],
           "properties": {
+            "prefix": "<p:mint-green,transparent>\u27A6 </>",
             "fetch_status": true,
             "fetch_stash_count": true,
             "fetch_upstream_icon": true,
-            "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }}"
+            "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }}"
           }
         }
       ]
@@ -158,16 +147,17 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "p:gray",
+          "foreground": "p:text",
           "properties": {
+            "prefix": "",
             "postfix": "",
-            "text": "\u2514"
+            "text": "╰─"
           }
         },
         {
           "type": "exit",
           "style": "plain",
-          "foreground": "#00897b",
+          "foreground": "p:text",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#e91e63{{ end }}"
           ],
@@ -179,11 +169,11 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "#ffffff",
+          "foreground": "p:text",
           "properties": {
             "prefix": "",
-            "postfix": "",
-            "text": "<p:gray,>></><p:green,>$</> "
+            "text": "><p:mint-green,>$</>",
+            "postfix": ""
           }
         }
       ]
