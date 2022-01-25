@@ -11,10 +11,9 @@
     "git-ahead": "#C9DBBA",
     "git-behind": "#F5CDA7",
     "node-green": "#6CA35E",
-    "path-foreground": "white",
-    "path-background": "#757575",
     "text": "#706C61",
-    "gray": "#757575",
+    "error": "#B6465F",
+    "gray": "#ADA0A6",
     "mint-green": "#ADFC92",
     "red": "red"
   },
@@ -159,11 +158,13 @@
           "style": "plain",
           "foreground": "p:text",
           "foreground_templates": [
-            "{{ if gt .Code 0 }}#e91e63{{ end }}"
+            "{{ if gt .Code 0 }}p:error{{ end }}"
           ],
           "properties": {
             "always_enabled": true,
-            "template": "\uE23A"
+            "prefix": "",
+            "template": "{{if gt .Code 0}} \uE23A: {{ .Code }}{{ end }}",
+            "postfix": ""
           }
         },
         {
@@ -172,7 +173,7 @@
           "foreground": "p:text",
           "properties": {
             "prefix": "",
-            "text": "><p:mint-green,>$</>",
+            "text": "\u276D<p:mint-green,>$</>",
             "postfix": ""
           }
         }
@@ -182,6 +183,6 @@
   "transient_prompt": {
     "background": "transparent",
     "foreground": "#ffffff",
-    "template": "<p:gray,>></> "
+    "template": "<p:gray,>\u276D</> "
   }
 }
