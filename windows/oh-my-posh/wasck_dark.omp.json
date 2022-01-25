@@ -115,7 +115,7 @@
           "properties": {
             "prefix": "<p:mint-green,>\u27A6</> ",
             "style": "agnoster_short",
-            "max_depth": "2",
+            "max_depth": 2,
             "home_icon": "\uf7db "
           }
         },
