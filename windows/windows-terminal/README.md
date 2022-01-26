@@ -1,13 +1,13 @@
 # Windows Terminal
 
 ## Configuration
-- Andromeda custom Schema:
+- WASCK schema:
 ```json
 "profiles": {
   "defaults": 
     {
       "acrylicOpacity": 0.80000000000000004,
-      "colorScheme": "Andromeda",
+      "colorScheme": "WASCK",
       "font": 
       {
           "face": "Cascadia Mono"
@@ -17,7 +17,7 @@
 },
 "schemas": [
   {
-    "name": "Andromeda",
+    "name": "WASCK",
     "background": "#13293D",
     "black": "#000000",
     "blue": "#2472C8",
