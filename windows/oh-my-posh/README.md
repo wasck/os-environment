@@ -33,10 +33,12 @@ oh-my-posh --init --shell pwsh --config $ohMyPoshThemeConfiguration | Invoke-Exp
 Enable-PoshTransientPrompt
 ```
 
-- In case you are not able to see username and hostname change the following in `wasck.omp.json`:
+- In case you are not able to see username and hostname change the following in `wasck.omp.json`:  
+from:
 ```Json
-// from
 "template": "{{ .Env.USERNAME }} <p:mint-green,>\u2022</> {{ .Env.COMPUTERNAME }} \u27E9 "
-// to
+```
+to:
+```Json
 "template": "{{ .UserName }} <p:mint-green,>\u2022</> {{ .HostName }} \u27E9 ",
 ```
