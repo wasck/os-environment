@@ -30,7 +30,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 cp zshrc ~/.zshrc
 ```
 ### [oh my posh](https://ohmyposh.dev/docs/)
-- Get oh-my-posh
+- [Get oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh/releases)
 ```sh
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
 
@@ -42,7 +42,7 @@ sudo chmod +x /usr/local/bin/oh-my-posh
 export ohMyPoshThemesPaht="~/.oh-my-posh/themes"
 export ohMyPoshTheme="wasck"
 export ohMyPoshConfig="$ohMyPoshThemesPaht/$ohMyPoshTheme.omp.json"
-export_poshconfig "$ohMyPoshConfig" json
+
 eval "$(oh-my-posh --init --shell zsh --config $ohMyPoshConfig)"
 ```
 
