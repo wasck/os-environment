@@ -11,7 +11,8 @@
     "git-ahead": "#C9DBBA",
     "git-behind": "#F5CDA7",
     "node-green": "#6CA35E",
-    "text": "#F0F3BD",
+    "text": "#D9CFC1",
+    "text-dark": "#A77E58",
     "error": "#B6465F",
     "gray": "#ADA0A6",
     "mint-green": "#ADFC92",
@@ -92,6 +93,12 @@
           "type": "git",
           "style": "plain",
           "foreground": "p:text",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:text-dark{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:text-dark{{ end }}",
+            "{{ if gt .Ahead 0 }}p:text-dark{{ end }}",
+            "{{ if gt .Behind 0 }}p:text-dark{{ end }}"
+          ],
           "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}p:git-modified{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git-diverged{{ end }}",
@@ -200,7 +207,7 @@
   ],
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#BFB48F",
+    "foreground": "p:text-dark",
     "template": "\u276D$ "
   }
 }
