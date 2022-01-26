@@ -11,7 +11,7 @@
     "git-ahead": "#C9DBBA",
     "git-behind": "#F5CDA7",
     "node-green": "#6CA35E",
-    "text": "#706C61",
+    "text": "#F0F3BD",
     "error": "#B6465F",
     "gray": "#ADA0A6",
     "mint-green": "#ADFC92",
@@ -200,7 +200,7 @@
   ],
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "p:text",
+    "foreground": "#BFB48F",
     "template": "\u276D$ "
   }
 }
