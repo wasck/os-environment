@@ -4,7 +4,7 @@ Import-Module posh-git
 # Set oh-my-posh
 $ohMyPoshPath = '~/.oh-my-posh/'
 $ohMyPoshThemesPath = $ohMyPoshPath + 'themes/'
-$ohMyPoshTheme = 'wasck_dark'
+$ohMyPoshTheme = 'wasck'
 $ohMyPoshThemeConfiguration = $ohMyPoshThemesPath + $ohMyPoshTheme + '.omp.json'
 
 oh-my-posh --init --shell pwsh --config $ohMyPoshThemeConfiguration | Invoke-Expression
