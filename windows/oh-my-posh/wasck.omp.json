@@ -201,6 +201,6 @@
   "transient_prompt": {
     "background": "transparent",
     "foreground": "p:text",
-    "template": "\u276D"
+    "template": "\u276D$ "
   }
 }
