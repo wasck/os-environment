@@ -20,54 +20,55 @@
   "blocks": [
     {
       "type": "prompt",
-      "alignment": "right",
+      "alignment": "left",
+      "newline": true,
       "segments": [
         {
-          "type": "dotnet",
+          "type": "session",
           "style": "plain",
           "foreground": "p:text",
           "properties": {
-            "prefix": " \uE77F ",
-            "postfix": "<p:mint-green,>\u2022</>"
+            "prefix": "╭─\u27E8 ",
+            "template": "{{ .Env.USERNAME }} <p:mint-green,>\u2022</> {{ .Env.COMPUTERNAME }} \u27E9 ",
+            "postfix": ""
           }
         },
         {
-          "type": "java",
-          "style": "plain",
-          "foreground": "red",
-          "properties": {
-            "prefix": " \uE738 ",
-            "postfix": "<p:mint-green,>\u2022</>"
-          }
-        },
-        {
-          "type": "angular",
+          "type": "path",
           "style": "plain",
           "foreground": "p:text",
           "properties": {
-            "prefix": " <p:red,>\uE753</> ",
-            "postfix": " <p:mint-green,>\u2022</>"
+            "prefix": "<p:mint-green,>\u2022</> ",
+            "style": "agnoster_short",
+            "max_depth": 2,
+            "home_icon": "\uf7db "
           }
-        },
-        {
-          "type": "node",
-          "style": "plain",
-          "foreground": "p:text",
-          "properties": {
-            "prefix": " <p:node-green,>\uE718</> ",
-            "postfix": " <p:mint-green,>\u2022</>"
-          }
-        },
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
         {
           "type": "shell",
           "style": "plain",
           "foreground": "p:text",
           "properties": {
             "prefix": " [ ",
-            "postfix": " <p:mint-green,>\u2022</> ",
+            "postfix": " <p:mint-green,>\u2022</>",
             "mapped_shell_names": {
               "pwsh": "PS"
             }
+          }
+        },
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "p:text",
+          "properties": {
+            "postfix": " <p:mint-green,>\u2022 </>",
+            "macos": "mac"
           }
         },
         {
@@ -88,37 +89,6 @@
       "newline": true,
       "segments": [
         {
-          "type": "session",
-          "style": "plain",
-          "foreground": "p:text",
-          "properties": {
-            "prefix": "╭─\u27E8 ",
-            "template": "{{ .Env.USERNAME }} <p:mint-green,>\u2022</> {{ .Env.COMPUTERNAME }}",
-            "postfix": ""
-          }
-        },
-        {
-          "type": "os",
-          "style": "plain",
-          "foreground": "p:text",
-          "properties": {
-            "prefix": " <p:mint-green,>\u2022</> ",
-            "macos": "mac",
-            "postfix": " \u27E9 "
-          }
-        },
-        {
-          "type": "path",
-          "style": "plain",
-          "foreground": "p:text",
-          "properties": {
-            "prefix": "<p:mint-green,>\u27A6</> ",
-            "style": "agnoster_short",
-            "max_depth": 2,
-            "home_icon": "\uf7db "
-          }
-        },
-        {
           "type": "git",
           "style": "plain",
           "foreground": "p:text",
@@ -129,11 +99,49 @@
             "{{ if gt .Behind 0 }}p:git-behind{{ end }}"
           ],
           "properties": {
-            "prefix": "<p:mint-green,transparent>\u27A6 </>",
+            "prefix": " ",
             "fetch_status": true,
             "fetch_stash_count": true,
             "fetch_upstream_icon": true,
-            "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }}"
+            "template": " <p:mint-green,>{{ .UpstreamIcon }}</>{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "dotnet",
+          "style": "plain",
+          "foreground": "p:text",
+          "properties": {
+            "prefix": " \uE77F "
+          }
+        },
+        {
+          "type": "java",
+          "style": "plain",
+          "foreground": "red",
+          "properties": {
+            "prefix": " \uE738 "
+          }
+        },
+        {
+          "type": "angular",
+          "style": "plain",
+          "foreground": "p:text",
+          "properties": {
+            "prefix": " <p:red,>\uE753</> "
+          }
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "p:text",
+          "properties": {
+            "prefix": " <p:node-green,>\uE718</> "
           }
         }
       ]
@@ -173,7 +181,17 @@
           "foreground": "p:text",
           "properties": {
             "prefix": "",
-            "text": "\u276D<p:mint-green,>$</>",
+            "text": "\u276D",
+            "postfix": ""
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:text",
+          "properties": {
+            "prefix": "",
+            "text": "<p:mint-green,>$</>",
             "postfix": ""
           }
         }
@@ -182,7 +200,7 @@
   ],
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#ffffff",
-    "template": "<p:gray,>\u276D</> "
+    "foreground": "p:text",
+    "template": "\u276D"
   }
 }
