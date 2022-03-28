@@ -97,7 +97,7 @@ chgrp docker "$DOCKER_DIR"
 
 - [wsl only] Daemon configuration file
 ```json
-# paht: /mnt/wsl/shared-docker/docker.sock
+# paht: /etc/docker/daemon.json
 {
   "hosts": ["unix:///mnt/wsl/shared-docker/docker.sock"],
   "iptables": false // disable so docker can use nftables
